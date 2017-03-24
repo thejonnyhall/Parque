@@ -1,0 +1,25 @@
+/* lmao */
+
+/* pseudo classes */
+
+/* Massive First letter */
+.intro:first-letter {
+  font-size: 200%;
+}
+
+/* Italics on the first line of the paragraph */
+.intro:first-line {
+  font-style: italic;
+}
+
+/*
+Box Example:
+Margin
+Padding
+Border
+Width
+*/
+
+invisibox {
+  visibility: hidden;
+}
