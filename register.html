@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <link href="assignmentcss.css" rel="stylesheet" type="text/css"/>
+        <title>Register</title>
+    </head>
+
+
+    <body>
+        <div id="wrapper">
+            <div id="middlebit">
+                <div id="header">
+                    <br>
+                    <a href="#"><img src="images/parque2.png" alt="logo" width="500" align="center"></a>
+                    <br><br>
+                </div>
+
+                <ul id="menubuttons">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="search.html">Search a Park</a></li>
+                    <li><a href="register.html">Register</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+
+                <div class="content">
+                    <h1>Register</h1>
+                    <p9>Fields indicated with * are required</p9>
+                    <form>
+                        <p>Full Name* <br><input type="text" name="firstname" size="15" maxlength="30" required="required" />
+                        <input type="text" name="lastname" size="15" maxlength="30" required="required" /> </p>
+                        <p>Email* <br><input type="text" name="email" size="34" maxlength="50" required="required" /> </p>
+                        <p>Username* <br><input type="text" name="username" size="34" maxlength="30" required="required" /> </p>
+                        <p>Date of Birth <br><input type="date" name="dob" size="10" /> </p>
+                        <p>Postcode <br><input type="number" name="postcode" size="4" maxlength="4" min="1000" max="9999"/> </p>
+                        <p>Password* <br><input type="password" name="password" size="34" maxlength="50" required="required" /> </p>
+                        <p>Confirm Password* <br><input type="password" name="confpassword" size="34" maxlength="50" required="required" /> </p>
+                        <p>Do you accept our Terms and Conditions?*</a> <input type="checkbox" name="terms" value="t+c" required="required" /> </p>
+
+                        <button type="submit">Submit
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
