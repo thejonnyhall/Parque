@@ -2,8 +2,10 @@
 
 body {
     font-family: sans-serif;
+    font: calibri;
     background-image: url("images/possiblebg.jpg");
     background-size: cover;
+    background-attachment: fixed;
 }
 
 #wrapper {
@@ -19,7 +21,7 @@ body {
     margin-left: 0px;
     text-align: center;
     background-color: white;
-    opacity: 0.65;
+    opacity: 0.8;
 }
 
 
@@ -50,6 +52,39 @@ a {
 
 }
 
-a.hover {
-    color: #cc3333;
+p9 {
+    color: red;
+}
+
+#loginform {
+    width: 350px;
+}
+
+#searchform {
+    width: 350px;
+}
+
+input {
+    font-size: 130%;
+    color: #5a5854;
+    background-color: #f2f2f2;
+    border: 1px solid #bdbdbd;
+    border-radius: 1px;
+    padding: 5px 5px 5px 6px;
+    margin-bottom: 10px;
+}
+
+input:focus, input.hover {
+    background-color: #ffffff;
+    border: 1px solid #b1e1e4;
+}
+
+
+button {
+    background-color: #2E8B57;
+    color: white;
+    text-transform: uppercase;
+    padding: 14px 20px;
+    margin: 8px;
+    width: 150px;
 }
