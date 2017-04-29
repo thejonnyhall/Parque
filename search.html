@@ -31,10 +31,10 @@
                                 <!-- <div id="map"></div> -->
                         <h2> Or you can </h2>
 
-                        <form action="javascript:validate()">
+                        <form action="result.html">
                             <br>
                             Search By Name: <input type="search" name="search">
-                            <br>
+                            <br><br>
                             Search By Suburb:
                             <select name="suburb" id="suburb" oninput="suburbVisible()">
                                 <option value=" "> </option>
@@ -46,6 +46,21 @@
                             <br>
                             <span id="suburbMissing" class="error-message"> Suburb is a required field </span>
                             <br><br>
+                            Search by Star
+                            </div>
+                            <div class="stars">
+                                <input type="radio" id="5-stars" name="rating" value="5" />
+                                <label for="5-stars" class="star">&#9733;</label>
+                                <input type="radio" id="4-stars" name="rating" value="4" />
+                                <label for="4-stars" class="star">&#9733;</label>
+                                <input type="radio" id="3-stars" name="rating" value="3" />
+                                <label for="3-stars" class="star">&#9733;</label>
+                                <input type="radio" id="2-stars" name="rating" value="2" />
+                                <label for="2-stars" class="star">&#9733;</label>
+                                <input type="radio" id="1-star" name="rating" value="1" />
+                                <label for="1-star" class="star">&#9733;</label>
+                            </div>
+                            <br>
                             Within <input type="number" name="postcode" size="4" maxlength="4" min="0" max="1000"/> kms
                             <br>
                             <input type="submit" value="Search">
@@ -55,4 +70,9 @@
             </div>
         </div>
     </body>
+    <footer>
+        <div id="footer">
+            Website made by Jonny Hall 51% and Oswald Doring 49% Titled: "Give me a 7 pls" <br>Jozwald 2017
+        </div>
+    </footer>
 </html>
