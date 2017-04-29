@@ -51,6 +51,11 @@ a {
 
 }
 
+#laZucc a {
+    color: red;
+    text-decoration: none;
+}
+
 p9 {
     color: red;
 }
@@ -108,10 +113,10 @@ button {
 
 .map {
     width: auto;
-    height: auto;
-    margin-left: 200px;
-    margin-right: 200px;
-    border: 2px solid;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px solid;
 }
 
 .mapresult {
@@ -130,7 +135,29 @@ button {
     width: 29%;
 }*/
 
-table {
-    margin-left: auto;
-    margin-right: auto;
+#resulttable {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#resulttable td, #resulttable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#resulttable tr:hover {
+    background-color: #ddd;
+}
+
+#resulttable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: grey;
+    color: white;
+}
+
+.error-message {
+    color: red;
+    visibility: hidden;
 }
