@@ -1,7 +1,7 @@
 <html>
     <head>
-        <link href="assignmentcss.css" rel="stylesheet" type="text/css"/>
-        <script type="text/javascript" src="myscripts.js"></script>
+        <link href="./public/css/assignmentcss.css" rel="stylesheet" type="text/css"/>
+        <script type="text/javascript" src="./public/js/myscripts.js"></script>
         <title>Search for a park!</title>
     </head>
 
@@ -9,18 +9,7 @@
     <body>
         <div id="wrapper">
             <div id="middlebit">
-                <div id="header">
-                    <br>
-                    <a href="index.html"><img src="images/parque2.png" alt="logo" width="500" align="center"></a>
-                    <br><br>
-                </div>
-
-                <ul id="menubuttons">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="search.html">Search a Park</a></li>
-                    <li><a href="register.html">Register</a></li>
-                    <li><a href="login.html">Login</a></li>
-                </ul>
+                <?php require './includes/partials/titlemenu.inc'; ?>
 
                 <div class="content">
                     <h1>Search for a park</h1>

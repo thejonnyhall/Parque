@@ -1,6 +1,6 @@
 <html>
     <head>
-        <link href="assignmentcss.css" rel="stylesheet" type="text/css"/>
+        <link href="./public/css/assignmentcss.css" rel="stylesheet" type="text/css"/>
         <title>Login</title>
     </head>
 
@@ -8,20 +8,7 @@
     <body>
         <div id="wrapper">
             <div id="middlebit">
-                <div id="header">
-                    <br>
-                    <a href="index.html"><img src="images/parque2.png" alt="logo" width="500" align="center"></a>
-                    <br><br>
-                </div>
-
-                <ul id="menubuttons">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="search.html">Search a Park</a></li>
-                    <li><a href="register.html">Register</a></li>
-                    <li><a href="login.php">Login</a></li>
-                </ul>
-
-
+                <?php require './includes/partials/titlemenu.inc'; ?>
                 <?php
 
                 $link = mysqli_connect("localhost", "root", "root", "parque");
