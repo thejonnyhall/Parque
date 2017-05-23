@@ -1,6 +1,5 @@
 <? require "./includes/partials/header.inc"; ?>
-
-        <? require "./includes/partials/navigation.inc"; ?>
+<? require "./includes/partials/navigation.inc"; ?>
         <div>
             <h3>the</h3>
             <h1>MEME</h1>

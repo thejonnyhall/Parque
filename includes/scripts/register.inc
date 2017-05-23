@@ -13,14 +13,10 @@
             validate_email($email);
             // Count if there are any errors found
             if (count($errors) === 0) {
-                // Create salt
-                $saltHash = md5(uniqid());
-                $salt = substr($saltHash, 0, 20);
-                // Concat salt to password and hash using sha1
-                $password =  sha1($password . $salt);
+                $password =  sha1($password);
                 // Create and prepare query
-                $query = "INSERT INTO members (firstName, lastName, email, password, salt)
-                VALUES (:firstName, :lastName, :email, :password, :salt)";
+                $query = "INSERT INTO members (firstName, lastName, email, password)
+                VALUES (:firstName, :lastName, :email, :password)";
                 // Prepare the statement to prevent SQL injections
                 $stmt = $database->prepare($query);
                 // Bind parameters
@@ -28,14 +24,17 @@
                 $stmt->bindParam(':lastName', $lastname);
                 $stmt->bindParam(':email', $email);
                 $stmt->bindParam(':password', ($password));
-                $stmt->bindParam(':salt', $salt);
                 // Execute the query
                 $stmt->execute();
                 if ($stmt->rowCount() > 0) {
                     // Get newly created account ID
-                    $userId = $database->lastInsertId();
+                    $userID = $database->lastInsertId();
                     // Redirect to index.php
-                    header("location: http://localhost/index.php");
+                    echo "<br>";
+                    echo "User Created";
+                    ?>
+                    <script> document.location = "http://localhost/assignment/index.php"; </script>
+                    <?
                 }
             } else {
                 print_r($errors);

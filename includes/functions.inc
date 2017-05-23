@@ -24,7 +24,7 @@ function validate_first_name($name) {
     global $errors;
     $len = strlen($name);
     if ($len < 2 || $len > 30) {
-        errorMessages($errors, "First name must have at least 2 characters and less than 30");
+        errorMessages($errors, "First name must have at least 2 characters and less than 30 <br />");
     }
 
     char_only($name, "First name must not contain numbers");
@@ -35,7 +35,7 @@ function validate_last_name($name) {
     global $errors;
     $len = strlen($name);
     if ($len < 2 || $len > 30) {
-        errorMessages($errors, "Last name must have at least 2 characters and less than 30");
+        errorMessages($errors, "Last name must have at least 2 characters and less than 30 <br />");
     }
     char_only($name, "Last name must not contain numbers");
 }

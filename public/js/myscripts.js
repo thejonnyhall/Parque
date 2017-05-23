@@ -74,8 +74,8 @@ function validate(){
     checkemail();
     checkDOB();
     checkPostcode();
-    checkPassword();
-    checkConfirmPassword();
+    checkpassword();
+    checkConfirmpassword();
     checkTerms();
     return true;
 }
@@ -128,7 +128,7 @@ function checkPostcode(){
         return true;
     }
 }
-function checkPassword(){
+function checkpassword(){
     if(document.getElementById("password").value == "") {
         document.getElementById("passwordMissing").style.visibility = "visible";
         return false;
@@ -136,9 +136,9 @@ function checkPassword(){
         return true;
     }
 }
-function checkConfirmPassword(){
+function checkConfirmpassword(){
     if(document.getElementById("confirmpassword").value == "") {
-        document.getElementById("confirmPasswordMissing").style.visibility = "visible";
+        document.getElementById("confirmpasswordMissing").style.visibility = "visible";
         return false;
     } else {
         return true;
@@ -174,8 +174,8 @@ function postcodeVisible(){
 function passwordVisible(){
     document.getElementById("passwordMissing").style.visibility = "hidden";
 }
-function confirmPasswordVisible(){
-    document.getElementById("confirmPasswordMissing").style.visibility = "hidden";
+function confirmpasswordVisible(){
+    document.getElementById("confirmpasswordMissing").style.visibility = "hidden";
 }
 function termsVisible(){
     document.getElementById("termsMissing").style.visibility = "hidden";
@@ -188,3 +188,29 @@ function registerForm(){
         window.location.href = 'register.html';
     }
 }
+
+function getSearchResults(){
+    // Get each of the inputs for search criteria.
+    var search = {name: '', suburb: '', rating: 0, location: {lat: 0, lon: 0, radius: 0}};
+    search.name = document.getElementById('name').value;
+    search.suburb = document.getElementById('suburb').value;
+    search.rating = document.getElementById('rating').value;
+    search.location.radius = document.getElementById('location').value;
+}
+
+function initMap() {
+  var myLatLng = {lat: <? echo "$lat"; ?>, lng: <? echo "$lon"; ?>};
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 14,
+    center: myLatLng
+  });
+
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: 'Hello World!'
+  });
+}
+async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCubfs3n_PUPa8RoYLEtwmC0BvN_yIoG80&callback=initMap">

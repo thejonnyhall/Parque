@@ -4,6 +4,7 @@
     // Database connection
     require_once "./lib/database.inc";
     require_once "./includes/functions.inc"
+
 ?>
 <html>
     <head>
@@ -15,6 +16,12 @@
             <div id="middlebit">
                 <div id="header">
                     <br>
-                    <a href="index.php"><img src="images/parque2.png" alt="logo" width="500" align="center"></a>
+                    <a href="index.php"><img src="./public/css/images/parque2.png" alt="logo" width="500" align="center"></a>
                     <br><br>
+                    <?
+                    if(!empty($_SESSION['id'])) {
+                        echo "Welcome " .$_SESSION['name'];
+                    } else {
+                        echo "";
+                    } ?>
                 </div>

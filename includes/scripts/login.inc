@@ -1,69 +1,45 @@
 <?php
-    //if the button is clicked
-    if (isset($_POST['submit'])) {
-        try {
-            $stmt = $pdo->prepare('SELECT password, salt FROM members where email = :email');
-            echo "heck";
+//if the button is clicked
+if (isset($_POST['submit'])) {
+    global $database;
+    try {
+        // Get what the user types in, stores them in variables
+        $email = $_POST['email'];
+        $password = $_POST['password'];
 
+        // Validate user input
+        validate_email($email);
+        $password =  sha1($password);
 
-        } catch (Exception $e) {
-                echo "oswaldsucks";
-            }
+        // Query time lmao kms
+        // Protects from sql injection
+        $stmt = $database->prepare("SELECT userID, firstName, email, password FROM members WHERE email = :email");
+
+        $stmt->execute(array(
+				':email' => $email
+				));
+
+        $data = $stmt->fetch(PDO::FETCH_ASSOC);
+        if($data == false){
+				echo "wrong username man";;
+			} else {
+				if($password == $data['password']) {
+                    $_SESSION['id'] = $data['userID'];
+					$_SESSION['name'] = $data['firstName'];
+					$_SESSION['email'] = $data['email'];
+					$_SESSION['password'] = $data['password'];
+
+					echo "Sucessfully Logged in, redirecting now";
+
+                    ?> <script> document.location = "http://localhost/assignment/index.php"; </script> <?
+                    sleep(2);
+                     exit;
+				} else {
+					echo "password wrong fam";
+			}
         }
-            // Protects from sql injection
-    //
-    //
-    //         // Binds the paramaters
-    //         $stmt->bindParam("email", $email);
-    //
-    //         // //Executes to the database
-    //         $stmt->execute();
-    //         echo "lmao renz";
-    //         //
-    //         //If something is there, fetch all
-    //         if ($stmt->rowCount() > 0) {
-    //             $results = $stmt->fetchALl();
-    //
-    //             // Comparing passwords from user entered password, to password in database
-    //             $passwordCom = sha1($password . $results['salt']);
-    //
-    //             if ($passwordCom === $password) {
-    //                 echo "it works";
-    //             } else {
-    //                 error_message($errors, "Email and Password combination is incorrect");
-    //                 return false;
-    //             }
-    //         }
-    //
-    //     } catch (Exception $e) {
-    //         echo "oswaldsucks";
-    //     }
-    // }
-
-        // get post params
-        //
-        // get salt, password where email = :email
-        //
-        // encrypt passowrds from params (not db)
-        //
-        // compare encrypt password to password from db
-        //
-        // if true login, else error
-
-    //}
-
-    // if($user->is_loggedin()!="") {
-    //     $user->redirect('home.php');
-    // }
-
-    // if(isset($_POST['submit'])) {
-    //     $uname = $_POST['email'];
-    //     $upass = $_POST['password'];
-
-    // if($user->login($uname,$upass)) {
-    //     $user->redirect('index.php');
-    // } else {
-    //     $error = "Wrong Details !";
-    //     }
-    //}
-    ?>
+    } catch (Exception $e) {
+            echo "Try Catch exception";
+        }
+    }
+?>

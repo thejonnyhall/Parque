@@ -10,7 +10,7 @@
         <form method="post" action="login.php">
             <p>email<br><br>
                 <input type="email" name="email" size="25" maxlength="30" /> </p>
-            <p>Password<br><br>
+            <p>password<br><br>
                 <input type="password" name="password" size="25" maxlength="50" /> </p>
             <input type="submit" name="submit" value="Login" />
         </form>

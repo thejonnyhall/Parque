@@ -25,9 +25,9 @@
                 <br>
             <span id="emailMissing" class="error-message"> email is a required field </span> -->
 
-            <p>Password* <br><input type="password" id="password" name="password" size="34" maxlength="50" placeholder="Password" oninput="passwordVisible()" />
+            <p>password* <br><input type="password" id="password" name="password" size="34" maxlength="50" placeholder="password" oninput="passwordVisible()" />
                 <br>
-            <span id="passwordMissing" class="error-message"> Password is a required field </span>
+            <span id="passwordMissing" class="error-message"> password is a required field </span>
 
             <!-- <p>Date of Birth <br><input type="date" id="dob" name="dob" size="10" oninput="dobVisible()" />
                 <br>
@@ -38,9 +38,9 @@
             <span id="postcodeMissing" class="error-message"> Postcode is a required field </span> -->
 
 
-            <!-- <p>Confirm Password* <br><input type="password" id="confirmpassword" name="confpassword" size="34" maxlength="50" placeholder="Confirm Password" oninput="confirmPasswordVisible()" />
+            <!-- <p>Confirm password* <br><input type="password" id="confirmpassword" name="confpassword" size="34" maxlength="50" placeholder="Confirm password" oninput="confirmpasswordVisible()" />
                 <br>
-            <span id="confirmPasswordMissing" class="error-message"> Confirm Password is a required field </span>
+            <span id="confirmpasswordMissing" class="error-message"> Confirm password is a required field </span>
 
             <p>Do you accept our Terms and Conditions?*</a> <input type="checkbox" id="terms" name="terms" oninput="termsVisible()" />
                 <br>
