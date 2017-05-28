@@ -1,40 +1,26 @@
 <? require "./includes/partials/header.inc"; ?>
 <? require "./includes/partials/navigation.inc"; ?>
 <? require "./includes/scripts/itemResult.inc"; ?>
+<? require "./includes/scripts/common.inc"; ?>
 
-<? echo "<h1>$name</h1>"; ?>
-<script>
-<div id="map"></div>
-initMap();
+
+<script type="text/javascript">
+    var map;
+    var bounds;
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFdqpcCyNQSmIGuIOZyNKOfKjvqp0Vv3Q&callback=initMap">
 </script>
 
-    <img src="./public/css/images/testmap.png" alt="testmap" width="390" height="300" align="left">
+
+
+<? echo "<h1>$name</h1>"; ?>
+<? //display_map($parks); ?>
+<br>
     <div class="userreviews">
-        <h1>Reviews</h1>
-            <!-- Review 1 -->
-            <article>
-                <header>
-                  <h4>Oswald Doring  3/04/2017  2 stars</h4>
-                  <p>The park was disguisting, i hated every minute</p>
-                </header>
-            </article>
-            <!-- Review 2 -->
-            <article>
-                <header>
-                  <h4>Jonny Hall  1/02/2017  5 stars</h4>
-                  <p>The park was amazing, perfect and beautiful. <br>Just like me</p>
-                </header>
-            </article>
-            <!-- Review 3 -->
-            <article>
-                <header>
-                  <h4>Hannah Cassell  3/04/2017  4 stars</h4>
-                  <p>Hey this isn't to do with Parks, but Jonny Hall if you see this call me on 0401237508 xx</p>
-                </header>
-            </article>
-        </article>
+        <? require "./includes/scripts/review.inc"; ?>
     </div>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br>
     <div class="parkinfo">
         <h3>Park info</h3>
         <table id="resulttable" border="3" >
@@ -49,19 +35,31 @@ initMap();
             </tr>
             <tr>
                 <th>Average Rating</th>
-                <td><div class="resultStars">
-                    <label for="5-stars" >&#9733;</label>
-                    <label for="4-stars" >&#9733;</label>
-                    <label for="3-stars" >&#9733;</label>
-                    <label for="2-stars" >&#9733;</label>
-                    <!-- <label for="1-star" >&#9733;</label> -->
+                <td><?
+                if ($rating == '5') {
+                    echo "&#9733 &#9733 &#9733 &#9733 &#9733;<br>";
+                } if ($rating == '4') {
+                    echo "&#9733 &#9733 &#9733 &#9733;";
+                } if ($rating == '3') {
+                    echo "&#9733 &#9733 &#9733;";
+                } if ($rating == '2') {
+                    echo "&#9733 &#9733;";
+                } if ($rating == '1') {
+                    echo "&#9733;";
+                } if ($rating == '') {
+                    echo "This Park is not yet rated";
+                }?>
                 </div></td>
             </tr>
         </table>
     </div>
+<?
+if($_SESSION) { ?>
     <div class="leaveAReview">
         <br>
-        <form action="lazucc.html">
+        <form action="" method="post">
+            <!-- Username grabbed from the Session firstName to add to review -->
+            <input type="text" name="username" value="<? echo $_SESSION['firstName'] ?>" readonly>
             <div class="stars">
                 <input type="radio" id="5-stars" name="rating" value="5" />
                 <label for="5-stars" class="star">&#9733;</label>
@@ -74,10 +72,14 @@ initMap();
                 <input type="radio" id="1-star" name="rating" value="1" />
                 <label for="1-star" class="star">&#9733;</label>
             </div>
-            <textarea name="review" cols="50" rows="5" placeholder="Write a review!"></textarea>
+            <textarea name="review" cols="50" rows="5" required placeholder="Write a review!"></textarea>
             <br>
-            <input type="submit" value="Submit">
+            <input type="submit" name="postReview" value="Post Review">
         </form>
     </div>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br>
-    </div>
+<?
+} else {
+    echo "<br /> <br /> <br /> <br /> <br />";
+    echo "<a href='login.php'>Login to Leave a review</a>";
+} ?>
+    <br><br><br><br><br><br><br><br><br><br><br><br>

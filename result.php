@@ -1,13 +1,19 @@
 <? require "./includes/partials/header.inc" ?>
 <? require "./includes/partials/navigation.inc" ?>
+<!--	These variables are global variables used for the map-->
+	<script type="text/javascript">
+        var map;
+        var bounds;
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFdqpcCyNQSmIGuIOZyNKOfKjvqp0Vv3Q&callback=initMap">
+    </script>
 
 
                 <h1>Results of your park search</h1><br>
-                <div class="map">
-                    <img src="./public//css/images/testmap.png" alt="testmap" width="546" align="center">
-                </div>
-                <br><br>
-
+                <div class="map" id="map"></div>
+                <script>initMap();</script>
+                <br>
                 <div class="resulttable">
                     <table id="resulttable" border="3" >
                         <colgroup span="5"></colgroup>
@@ -15,20 +21,16 @@
                             <tr>
                                 <th>Park Name</th>
                                 <th>Suburb</th>
-                                <th>Grid Coords</th>
+                                <th>Rating</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <? require "./includes/scripts/search.inc"; ?>
+                            <? require "./includes/scripts/results.inc"; ?>
+
                         </tbody>
                     </table>
+
                 </div>
             </div>
         </div>
-    </body>
-    <footer>
-        <div id="footer">
-            Website made by Jonny Hall 51% and Oswald Doring 49% Titled: "Give me a 7 pls" <br>Jozwald 2017
-        </div>
-    </footer>
-</html>
+<? require "./includes/partials/footer.inc" ?>

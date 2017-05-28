@@ -1,6 +1,6 @@
 <? require "./includes/partials/header.inc"; ?>
 <? require "./includes/partials/navigation.inc"; ?>
-<? require "./includes/scripts/search.inc"; ?>
+<? require "./includes/scripts/results.inc"; ?>
 
 <div class="content">
     <h1>Search for a park</h1>
@@ -23,7 +23,6 @@
             echo '</select>';
             ?>
             <p />
-
             <select id="rating" name="rating">
                 <option value="0" disabled selected>Rating</option>
                 <option value="1">1 Stars</option>
@@ -35,8 +34,6 @@
             <p />
             <button type="submit" name="submit">Search</button>
         </form>
-
-
-
     </div>
+</div>
 <? require "./includes/partials/footer.inc"; ?>
