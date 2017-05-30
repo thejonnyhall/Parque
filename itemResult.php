@@ -2,20 +2,19 @@
 <? require "./includes/partials/navigation.inc"; ?>
 <? require "./includes/scripts/itemResult.inc"; ?>
 <? require "./includes/scripts/common.inc"; ?>
+<!--	These variables are global variables used for the map-->
+	<script type="text/javascript">
+        var map;
+        var bounds;
+    </script>
+	<script async defer
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFdqpcCyNQSmIGuIOZyNKOfKjvqp0Vv3Q&callback=initMap">
+	</script>
 
-
-<script type="text/javascript">
-    var map;
-    var bounds;
-</script>
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFdqpcCyNQSmIGuIOZyNKOfKjvqp0Vv3Q&callback=initMap">
-</script>
-
-
-
+<!-- Not sure but i think maps finally works?? -->
 <? echo "<h1>$name</h1>"; ?>
-<? //display_map($parks); ?>
+<div id="map"></div>
+
 <br>
     <div class="userreviews">
         <? require "./includes/scripts/review.inc"; ?>
@@ -36,17 +35,17 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFdqpcCyNQSmIGuIOZyNKOfKj
             <tr>
                 <th>Average Rating</th>
                 <td><?
-                if ($rating == '5') {
+                if (round($rating) == '5') {
                     echo "&#9733 &#9733 &#9733 &#9733 &#9733;<br>";
-                } if ($rating == '4') {
+                } else if (round($rating) == '4') {
                     echo "&#9733 &#9733 &#9733 &#9733;";
-                } if ($rating == '3') {
+                } else if (round($rating) == '3') {
                     echo "&#9733 &#9733 &#9733;";
-                } if ($rating == '2') {
+                } else if (round($rating) == '2') {
                     echo "&#9733 &#9733;";
-                } if ($rating == '1') {
+                } else if (round($rating) == '1') {
                     echo "&#9733;";
-                } if ($rating == '') {
+                } else {
                     echo "This Park is not yet rated";
                 }?>
                 </div></td>
@@ -59,7 +58,7 @@ if($_SESSION) { ?>
         <br>
         <form action="" method="post">
             <!-- Username grabbed from the Session firstName to add to review -->
-            <input type="text" name="username" value="<? echo $_SESSION['firstName'] ?>" readonly>
+            <input type="text" visibility : hidden name="username" value="<? echo $_SESSION['firstName'] ?>" readonly>
             <div class="stars">
                 <input type="radio" id="5-stars" name="rating" value="5" />
                 <label for="5-stars" class="star">&#9733;</label>

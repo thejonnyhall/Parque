@@ -24,7 +24,7 @@
                 <br>
             <span id="passwordMissing" class="error-message"> password is a required field </span>
 
-            <p>Date of Birth <br><input type="date" id="dob" name="dob" value="<?= $_POST['dob'] ?? ''; ?>" size="10" oninput="dobVisible()" />
+            <p>Date of Birth <br><input type="text" id="dob" name="dob" value="<?= $_POST['dob'] ?? ''; ?>" size="10" oninput="dobVisible()" />
                 <br>
             <span id="dobMissing" class="error-message"> Date of Birth is a required field </span>
 

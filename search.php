@@ -34,6 +34,7 @@
             <p />
             <button type="submit" name="submit">Search</button>
         </form>
+            <button name="geo" onclick="searchByLocation()">Search by Current Location</button>
     </div>
 </div>
 <? require "./includes/partials/footer.inc"; ?>
