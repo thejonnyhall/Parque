@@ -3,7 +3,7 @@ if (isset($_POST['postReview'])) {
 	try {
 		$parkID = $_GET['id'];
 		$review = $_POST['review'];
-		$rating = $_POST['rating'];
+		$rtng = $_POST['rating'];
 		$username = $_POST['username'];
 
 		$InsertQuery = "INSERT INTO reviews (parkID, userID, review, rating, username)
@@ -14,7 +14,7 @@ if (isset($_POST['postReview'])) {
 		// $insertStmt->bindParam(':datePosted', $postedDate);
 		$insertStmt->bindParam(':userID', $userID);
 		$insertStmt->bindParam(':review', $review);
-		$insertStmt->bindParam(':rating', $rating);
+		$insertStmt->bindParam(':rating', $rtng);
 		$insertStmt->bindParam(':username', $username);
 
 		$insertStmt->execute();

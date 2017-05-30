@@ -1,9 +1,12 @@
-<?
+<?php
 if (isset($_GET['id'])) {
     global $database;
     try {
         $id = $_GET['id'];
-        $stmt = $database->prepare("SELECT * FROM items LEFT JOIN reviews ON parkID = id WHERE id = $id");
+        $stmt = $database->prepare("SELECT id, name, suburb, longitude, latitude, AVG(rating) AS avgRating, review
+            FROM items
+            LEFT JOIN reviews ON items.id = reviews.parkID
+            WHERE items.id = $id");
         $stmt->execute();
 
         $parks = $stmt->fetch();
@@ -12,30 +15,25 @@ if (isset($_GET['id'])) {
         $suburb = $parks['suburb'];
         $lon = $parks['longitude'];
         $lat = $parks['latitude'];
-        $rating = $parks['rating'];
+        $rating = $parks['avgRating'];
         $review = $parks['review'];
-
-
-        // $sql = $database->prepare("SELECT * FROM reviews LEFT JOIN members ON members.userID = reviews.userID where reviews.parkID = $id");
-        // $sql->execute();
-        //
-        // $names = $sql->fetchAll();
-        //
-        // var_dump($names);
-        // $firstname = $names['firstName'];
-
+?>
+        <script>
+            var singleMap;
+            function initMap(){
+                singleMap = new google.maps.Map(document.getElementById('map'),{
+                center:  {lat:<?php echo $lat ?>, lng:<?php echo $lon ?>},
+                zoom: 15
+                });
+                var marker = new google.maps.Marker({
+                    position: {lat:<?php echo $lat ?>, lng:<?php echo $lon ?>},
+                    map: singleMap
+                });
+            };
+        </script>
+<?
     } catch (Exception $e) {
         echo "exceptional xD";
         echo $e->getMessage();
     }
 }
-
-
-
-
-?>
-
-<script type="text/javascript">
-    lon = <? echo json_encode($lon); ?>;
-    lat = <? echo json_encode($lat); ?>;
-</script>

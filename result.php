@@ -5,14 +5,15 @@
         var map;
         var bounds;
     </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFdqpcCyNQSmIGuIOZyNKOfKjvqp0Vv3Q&callback=initMap">
-    </script>
+
+	<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+	</script>
 
 
                 <h1>Results of your park search</h1><br>
                 <div class="map" id="map"></div>
-                <script>initMap();</script>
+				<script	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFdqpcCyNQSmIGuIOZyNKOfKjvqp0Vv3Q&callback=initMap">
+				</script>
                 <br>
                 <div class="resulttable">
                     <table id="resulttable" border="3" >
@@ -25,12 +26,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <? require "./includes/scripts/results.inc"; ?>
-
+							<? require "./includes/scripts/results.inc"; ?>
+							<? require "./includes/scripts/location.inc"; ?>
                         </tbody>
                     </table>
-
                 </div>
             </div>
         </div>
+
 <? require "./includes/partials/footer.inc" ?>
